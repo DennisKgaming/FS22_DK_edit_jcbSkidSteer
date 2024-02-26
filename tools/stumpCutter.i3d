@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="stumpCutter" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.1"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="9" filename="$data/shared/default_normal.png"/>
+    <File fileId="10" filename="jcbSkidsteerToolsDecals_specular.dds"/>
+    <File fileId="2" filename="jcbSkidsteerTools_normal.dds"/>
+    <File fileId="3" filename="jcbSkidsteerTools_specular.dds"/>
+    <File fileId="8" filename="jcbTM320sDecals_diffuse.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="jcbSkidsteerTools_mat" materialId="4" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+      <CustomParameter name="colorMat0" value="0.0278 0.0254 0.0231 1"/>
+      <CustomParameter name="colorMat1" value="1 0.1 0.1 1"/>
+      <CustomParameter name="colorMat2" value="0.1 1 0.1 1"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 1 1"/>
+      <CustomParameter name="colorMat4" value="1 1 0.1 1"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 1"/>
+      <CustomParameter name="colorMat6" value="1 0.1 1 1"/>
+      <CustomParameter name="colorMat7" value="0.1 1 1 1"/>
+    </Material>
+    <Material name="jcbTM320sDecals_mat" materialId="5" alphaBlending="true" customShaderId="4" customShaderVariation="Decal">
+      <Texture fileId="8"/>
+      <Normalmap fileId="9"/>
+      <Glossmap fileId="10"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+    </Material>
+    <Material name="lambert1" materialId="6" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="stumpCutter.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="jcbStumpCutter_main_component1" dynamic="true" compound="true" collisionMask="2105344" clipDistance="300" nodeId="15" materialIds="6" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="attacherJoint" translation="5.44957e-08 0.553378 -0.0345913" rotation="90 -75.7202 -90" nodeId="16"/>
+        <Shape shapeId="2" name="jcbStumpCutter_vis" nodeId="17" materialIds="4" castsShadows="true" receiveShadows="true" skinBindNodeIds="17 18 19 20 32 33 37 38">
+          <TransformGroup name="arm" translation="-0.558498 0.409709 0.224116" rotation="0 14.822 0" nodeId="18">
+            <TransformGroup name="arm2" translation="-0.0794767 -0.101476 0.107662" nodeId="19">
+              <TransformGroup name="drum" translation="0.0772951 0.457309 0.767309" nodeId="20"/>
+              <TransformGroup name="cutNodeRot" translation="0.0811782 0.122202 1.00952" rotation="-90 180 0" nodeId="21">
+                <TransformGroup name="cutNode" translation="0.7 0.489786 -0.214025" rotation="90 -90 0" nodeId="22"/>
+              </TransformGroup>
+              <TransformGroup name="hydraulicArm2Ref" translation="-0.0798548 0.381441 0.352147" rotation="-26.1861 -0.00480276 0" nodeId="23"/>
+              <TransformGroup name="effects" translation="0.0518064 0.0398531 0.932778" rotation="-91.859 -4.795 -0.335" nodeId="24">
+                <Shape shapeId="3" name="emitterShapeWood" translation="7.10543e-17 2.84217e-15 -1.3145e-15" clipDistance="300" nodeId="25" materialIds="4" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+                <Shape shapeId="3" name="emitterShapeDust" translation="7.10543e-17 2.84217e-15 -1.3145e-15" clipDistance="300" nodeId="26" materialIds="4" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              </TransformGroup>
+              <TransformGroup name="cutNodeRefFrame" translation="0.0811782 0.122202 1.00952" rotation="90 3.18055e-15 180" nodeId="27"/>
+              <Shape shapeId="4" name="decals" translation="-0.100217 0.558277 0.623945" rotation="0 -14.822 0" clipDistance="50" nodeId="28" materialIds="5" castsShadows="true" receiveShadows="true" decalLayer="1"/>
+              <Shape shapeId="5" name="colArm1" translation="-0.0436776 0.341063 0.537527" rotation="-27.0259 0 0" visibility="false" compoundChild="true" collisionMask="8194" density="0.01" nodeId="29" materialIds="4" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <Shape shapeId="6" name="colArm2" translation="-0.228941 0.357944 0.582684" rotation="-27.0259 0 0" visibility="false" compoundChild="true" collisionMask="8194" density="0.01" nodeId="30" materialIds="4" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+              <TransformGroup name="j_arm2" translation="-0.0492903 -0.101476 0.124411" nodeId="31"/>
+            </TransformGroup>
+            <TransformGroup name="hydraulicArm2" translation="-0.159302 0.104591 0.103184" rotation="-26.1861 -0.00480276 1.94126e-19" nodeId="32">
+              <TransformGroup name="hydraulicArm2Punch" translation="-3.25997e-13 7.17648e-15 0.397414" nodeId="33"/>
+              <TransformGroup name="j_hydraulicArm2" translation="-0.127605 0.104591 0.140502" rotation="0.000106014 -0.000176992 -8.70376e-05" nodeId="34"/>
+            </TransformGroup>
+            <TransformGroup name="hydraulicArmRef" translation="0.134363 -0.086106 -0.149837" rotation="180 -78.8989 180" nodeId="35"/>
+            <TransformGroup name="j_arm" translation="-0.558498 0.409709 0.224116" rotation="0 -14.822 0" nodeId="36"/>
+          </TransformGroup>
+          <TransformGroup name="hydraulicArm" translation="-0.0242 0.3236 0.0161" rotation="-0.000392429 -86.2791 0" nodeId="37">
+            <TransformGroup name="hydraulicArmPunch" translation="-2.7347e-14 -2.12216e-12 0.443673" nodeId="38"/>
+          </TransformGroup>
+          <TransformGroup name="j_root" nodeId="39"/>
+          <Shape shapeId="7" name="pipes" clipDistance="75" nodeId="40" materialIds="4" castsShadows="true" receiveShadows="true" skinBindNodeIds="39 36 31 34"/>
+        </Shape>
+      </Shape>
+  </Scene>
+
+  <UserAttributes>
+    <UserAttribute nodeId="31">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="34">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="36">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="39">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+  </UserAttributes>
+
+</i3D>

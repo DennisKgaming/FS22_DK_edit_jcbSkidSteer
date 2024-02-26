@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="implementDynamicMountAttacher" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_skidSteerBaleFork</name>
+        <specs>
+            <combination filterCategory="skidSteerVehicles"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloaderBaleFork</function>
+        </functions>
+        <image>store_jcbBaleFork.png</image>
+        <price>600</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JCB</brand>
+        <category>skidSteerTools</category>
+        <shopTranslationOffset>0 0 0</shopTranslationOffset>
+        <shopRotationOffset>1.056 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>29952</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>4864</indexBufferMemoryUsage>
+        <textureMemoryUsage>458752</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>tools/baleFork.i3d</filename>
+        <size width="2" length="2"/>
+        <supportsPickUp>false</supportsPickUp>
+        <components>
+            <component centerOfMass="0 0.1 -0.45" solverIterationCount="10" mass="150"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer" />
+        </inputAttacherJoints>
+    </attachable>
+
+    <dynamicMountAttacher node="jcbBaleFork_main_component1">
+        <mountCollisionMask node="col1_back" collisionMask="134225920" />
+        <mountCollisionMask node="col2_back" collisionMask="134225920" />
+        <mountCollisionMask node="col3_back" collisionMask="134225920" />
+    </dynamicMountAttacher>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="jcbBaleFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="col1_back" node="0>2" />
+        <i3dMapping id="col2_back" node="0>3" />
+        <i3dMapping id="col3_back" node="0>4" />
+    </i3dMappings>
+</vehicle>

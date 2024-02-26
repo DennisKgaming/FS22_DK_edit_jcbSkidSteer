@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<crawler>
+    <file name="tracks/jcbTracks.i3d" leftNode="0|1" rightNode="0|0"/>
+    <scrollerNodes>
+        <scrollerNode node="0" scrollSpeed="0.91" scrollLength="3" shaderParameterName="offsetUV" shaderParameterComponent="1 1"/>
+    </scrollerNodes>
+    <rotatingParts>
+        <rotatingPart node="1" radius="0.234" />
+        <rotatingPart node="2" radius="0.152" />
+        <rotatingPart node="3" radius="0.152" />
+        <rotatingPart node="4" radius="0.152" />
+        <rotatingPart node="5" radius="0.152" />
+        <rotatingPart node="6" radius="0.152" />
+        <rotatingPart node="7" radius="0.152" />
+        <rotatingPart node="8" radius="0.152" />
+    </rotatingParts>
+</crawler>

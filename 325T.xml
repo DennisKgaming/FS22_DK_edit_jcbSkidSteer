@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="teleHandler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>260-325T</name>
+        <specs>
+            <power>74</power>
+            <maxSpeed>13</maxSpeed>
+            <combination filterCategory="skidSteerTools"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_skidsteer</function>
+        </functions>
+        <image>store_jcb325T.png</image>
+        <price>58000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JCB</brand>
+        <category>skidSteerVehicles</category>
+        <shopTranslationOffset>0 -0.05 0</shopTranslationOffset>
+        <shopRotationOffset>0 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>2201088</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>365568</indexBufferMemoryUsage>
+        <textureMemoryUsage>1769472</textureMemoryUsage>
+        <audioMemoryUsage>401696</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <configurationSets>
+        <configurationSet name="260">
+            <configuration name="motor" index="2" />
+            <configuration name="wheel" index="2" />
+        </configurationSet>
+        <configurationSet name="325T">
+            <configuration name="motor" index="1" />
+            <configuration name="wheel" index="1" />
+        </configurationSet>
+    </configurationSets>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_tractor</typeDesc>
+        <filename>325T/325T.i3d</filename>
+        <sounds filename="sounds/325t.xml"/>
+        <size width="2.5" length="3.2" lengthOffset="-0.2"/>
+        <components>
+            <component centerOfMass="0 0.45 -0.25" solverIterationCount="10" mass="3950"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="LOADER" />
+        <mapHotspot type="WHEELLOADER" />
+    </base>
+
+    <wheels>
+        <wheelConfigurations>
+            <wheelConfiguration name="325T" price="10000">
+                <wheels autoRotateBackSpeed="10.0" speedDependentRotateBack="false">
+                    <wheel>
+                        <physics rotSpeed="1" restLoad="0.9" radius="0.39" width="0.45" repr="wheelFrontLeft"  forcePointRatio="0.5" initialCompression="14" suspTravel="0.10" spring="55" damper="50" frictionScale="2" />
+                        <tire isCareWheel="false" />
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="1" restLoad="0.9" radius="0.39" width="0.45" repr="wheelFrontRight" forcePointRatio="0.5" initialCompression="14" suspTravel="0.10" spring="55" damper="50" frictionScale="2" />
+                        <tire isCareWheel="false" />
+                    </wheel>
+                    <wheel hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="1" restLoad="1.8" radius="0.38" width="0.45" repr="wheelBackLeft"   forcePointRatio="0.5" initialCompression="40" suspTravel="0.10" spring="43" damper="50" frictionScale="2" />
+                        <tire isCareWheel="false" tireTrackAtlasIndex="13" isInverted="true"/>
+                    </wheel>
+                    <wheel hasTireTracks="true" hasParticles="true" >
+                        <physics rotSpeed="1" restLoad="1.8" radius="0.38" width="0.45" repr="wheelBackRight"  forcePointRatio="0.5" initialCompression="40" suspTravel="0.10" spring="43" damper="50" frictionScale="2" />
+                        <tire isCareWheel="false" tireTrackAtlasIndex="13" isInverted="false"/>
+                    </wheel>
+                </wheels>
+                <crawlers>
+                    <crawler filename="tracks/jcbTracks.xml" linkNode="crawlerDriveNodeLeft"  wheelIndex="3" isLeft="false"/>
+                    <crawler filename="tracks/jcbTracks.xml" linkNode="crawlerDriveNodeRight" wheelIndex="4" isLeft="true"/>
+                </crawlers>
+            </wheelConfiguration>
+            <wheelConfiguration name="260" price="0">
+                <wheels autoRotateBackSpeed="10.0" speedDependentRotateBack="false">
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/SK800/10_R16_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics rotSpeed="1" restLoad="0.9" repr="wheelFrontLeft"  showSteeringAngle="false" forcePointRatio="0.5" mass="0.1" initialCompression="15" suspTravel="0.06" spring="82" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/SK800/10_R16_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics rotSpeed="1" restLoad="0.9" repr="wheelFrontRight" showSteeringAngle="false" forcePointRatio="0.5" mass="0.1" initialCompression="15" suspTravel="0.06" spring="82" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/SK800/10_R16_5.xml" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics rotSpeed="1" restLoad="1.8" repr="wheelBackLeft"   showSteeringAngle="false" forcePointRatio="0.5" mass="0.1" initialCompression="50" suspTravel="0.06" spring="57" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                    <wheel filename="$data/shared/wheels/tires/trelleborg/SK800/10_R16_5.xml" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics rotSpeed="1" restLoad="1.8" repr="wheelBackRight"  showSteeringAngle="false" forcePointRatio="0.5" mass="0.1" initialCompression="50" suspTravel="0.06" spring="57" damper="20" rotationDamping="0.002" />
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <ackermannSteeringConfigurations>
+            <ackermannSteering rotSpeed="70" rotMax="60" rotCenter="0 0" />
+        </ackermannSteeringConfigurations>
+
+        <rimColor>JCB_YELLOW1</rimColor>
+
+        <hubs>
+            <color0>NEWHOLLAND_BLACK1</color0>
+            <color1>SHARED_GREY1</color1>
+            <hub linkNode="wheelFrontLeft"  filename="$data/shared/wheels/hubs/hub_n10_14.xml" isLeft="true"  scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelFrontRight" filename="$data/shared/wheels/hubs/hub_n10_14.xml" isLeft="false" scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelBackLeft"   filename="$data/shared/wheels/hubs/hub_n10_14.xml" isLeft="true"  scale="0.2 0.2 0.2" />
+            <hub linkNode="wheelBackRight"  filename="$data/shared/wheels/hubs/hub_n10_14.xml" isLeft="false" scale="0.2 0.2 0.2" />
+        </hubs>
+    </wheels>
+
+    <attacherJoints>
+        <attacherJoint node="attacherJoint" nodeVisual="attacherJoint_visual" jointType="skidSteer" rotLimitSpring="7500 7500 7500" rotLimitDamping="5 5 5" transLimitSpring="7500 7500 7500" transLimitDamping="5 5 5" allowsJointLimitMovement="false" allowsLowering="false">
+            <schema position="1 0.4" rotation="0" invertX="true"/>
+        </attacherJoint>
+    </attacherJoints>
+
+    <lights>
+        <states>
+            <state lightTypes="0" />
+            <state lightTypes="0 1" />
+            <state lightTypes="0 1 2" />
+        </states>
+
+        <realLights>
+            <low>
+                <light node="frontLightLow"   lightTypes="0 3"/>
+                <light node="highBeamLow"   lightTypes="3"/>
+                <light node="backLightsHigh"   lightTypes="0"/>
+                <light node="workLightBackLow"   lightTypes="1"/>
+            </low>
+            <high>
+                <light node="frontLightHigh"   lightTypes="0 3"/>
+                <light node="highBeamHigh"   lightTypes="3"/>
+                <light node="backLightsHigh"   lightTypes="0"/>
+                <light node="workLightBackHigh"   lightTypes="1"/>
+                <brakeLight node="backLightsHigh" />
+                <turnLightLeft node="turnLightLeftFront" />
+                <turnLightLeft node="turnLightLeftBack" />
+                <turnLightRight node="turnLightRightBack" />
+                <turnLightRight node="turnLightRightFront" />
+            </high>
+        </realLights>
+
+        <defaultLights>
+            <defaultLight shaderNode="backStatic" lightTypes="0"/>
+            <defaultLight shaderNode="defaultStatic" lightTypes="0 3"/>
+            <defaultLight shaderNode="defaultStatic1" lightTypes="0 3"/>
+            <defaultLight shaderNode="workBackStatic" lightTypes="1"/>
+            <defaultLight shaderNode="workFrontStatic" lightTypes="2"/>
+        </defaultLights>
+
+        <turnLights>
+            <turnLightLeft shaderNode="turnLeftStatic" />
+            <turnLightRight shaderNode="turnRightStatic" />
+            <turnLightRight shaderNode="turnRightStatic1" />
+        </turnLights>
+
+        <brakeLights>
+            <brakeLight shaderNode="backStatic" />
+        </brakeLights>
+
+        <sounds>
+            <switchLight template="SWITCH_01" linkNode="jcb325T_main_component1" />
+            <turnLight template="SWITCH_TURNLIGHT" linkNode="jcb325T_main_component1" />
+        </sounds>
+    </lights>
+
+    <enterable>
+        <exitPoint node="exitPoint"/>
+        <enterReferenceNode node="jcb325T_main_component1"/>
+        <characterNode node="player_skin" cameraMinDistance="1.5" spineRotation="-90 0 90">
+            <target ikChain="rightFoot" targetNode="player_rightFoot"/>
+            <target ikChain="leftFoot" targetNode="player_leftFoot"/>
+            <target ikChain="rightArm" targetNode="player_rightHand"/>
+            <target ikChain="leftArm" targetNode="player_leftHand"/>
+        </characterNode>
+        <cameras>
+            <camera node="outdoorCamera" rotatable="true" rotateNode="outdoorCameraTarget" limit="true" useWorldXZRotation="true" rotMinX="-1.4" rotMaxX="1" transMin="3" transMax="25" translation="0 0 3.5" rotation="-25 180 0">
+                <raycastNode node="cameraRaycastNode1"/>
+                <raycastNode node="cameraRaycastNode2"/>
+            </camera>
+            <camera node="indoorCamera" rotatable="true" limit="true" rotMinX="-1.1" rotMaxX="0.4" transMin="0" transMax="0" useMirror="true" isInside="true" shadowFocusBox="shadowFocusBox"/>
+        </cameras>
+        <mirrors>
+            <mirror node="mirrorMiddleDecal" prio="1"/>
+            <mirror node="mirrorLeftDecal" prio="1"/>
+            <mirror node="mirrorRightDecal" prio="2"/>
+        </mirrors>
+    </enterable>
+
+    <drivable>
+        <steeringWheel node="joystickLeft" indoorRotation="20" outdoorRotation="20"/>
+        <sounds>
+            <waterSplash template="WATER_SPLASH_01" linkNode="jcb325T_main_component1" />
+        </sounds>
+    </drivable>
+
+    <motorized>
+        <consumerConfigurations>
+            <consumerConfiguration>
+                <consumer fillUnitIndex="1" usage="25"  fillType="diesel" />  <!-- usage is per hour at max load and max rpm -->
+            </consumerConfiguration>
+        </consumerConfigurations>
+        <motorConfigurations>
+            <motorConfiguration hp="74" name="325T" price="0">
+                <motor torqueScale="0.385" minRpm="850" maxRpm="1900" maxForwardSpeed="13" maxBackwardSpeed="13" brakeForce="2" lowBrakeForceScale="0.22" lowBrakeForceSpeedLimit="1" rotInertia="0.00003">
+                    <torque normRpm="0.1" torque="0.35"/>
+                    <torque normRpm="0.2" torque="0.65"/>
+                    <torque normRpm="0.3" torque="0.85"/>
+                    <torque normRpm="0.4" torque="1"/>
+                    <torque normRpm="0.75" torque="0.75"/>
+                    <torque normRpm="1" torque="0.65"/>
+                </motor>
+                <transmission minForwardGearRatio="56" maxForwardGearRatio="150" minBackwardGearRatio="56" maxBackwardGearRatio="150"/>
+                <objectChange node="config_jcb260" visibilityActive="false" />
+                <objectChange node="config_jcb325T" visibilityActive="true" />
+                <objectChange node="decalsArmWheels" visibilityActive="false" />
+                <objectChange node="decalsArmCrawler" visibilityActive="true" />
+            </motorConfiguration>
+            <motorConfiguration hp="74" name="260" price="0">
+                <motor torqueScale="0.385" minRpm="850" maxRpm="1900" maxForwardSpeed="20" maxBackwardSpeed="20" brakeForce="2" lowBrakeForceScale="0.22" lowBrakeForceSpeedLimit="1" rotInertia="0.0003">
+                    <torque normRpm="0.1" torque="0.35"/>
+                    <torque normRpm="0.2" torque="0.65"/>
+                    <torque normRpm="0.3" torque="0.85"/>
+                    <torque normRpm="0.4" torque="1"/>
+                    <torque normRpm="0.75" torque="0.75"/>
+                    <torque normRpm="1" torque="0.65"/>
+                </motor>
+                <transmission minForwardGearRatio="36" maxForwardGearRatio="150" minBackwardGearRatio="36" maxBackwardGearRatio="150"/>
+                <objectChange node="config_jcb260" visibilityActive="true" />
+                <objectChange node="config_jcb325T" visibilityActive="false" />
+                <objectChange node="decalsArmCrawler" visibilityActive="false" />
+                <objectChange node="decalsArmWheels" visibilityActive="true" />
+            </motorConfiguration>
+        </motorConfigurations>
+        <differentialConfigurations>
+            <differentialConfiguration>
+                <differentials>
+                    <differential torqueRatio="0.5" maxSpeedRatio="2.9" wheelIndex1="1" wheelIndex2="2"/>
+                    <differential torqueRatio="0.5" maxSpeedRatio="2.8" wheelIndex1="3" wheelIndex2="4"/>
+                    <differential torqueRatio="0.5" maxSpeedRatio="1.2" differentialIndex1="1" differentialIndex2="2"/>
+                </differentials>
+            </differentialConfiguration>
+        </differentialConfigurations>
+        <exhaustEffects>
+            <exhaustEffect node="exhaustParticles" filename="$data/effects/exhaust/exhaust.i3d" minRpmColor="0.9 0.9 0.9 0.1" maxRpmColor="0.9 0.9 0.9 0.4" minRpmScale="0.05" maxRpmScale="0.5" xzRotationsOffset="50 0" xzRotationsForward="-50 0" xzRotationsBackward="50 0" xzRotationsLeft="20 -50" xzRotationsRight="20 50"/>
+        </exhaustEffects>
+        <motorStartDuration>3500</motorStartDuration>
+
+        <dashboards>
+            <dashboard displayType="ROT"    valueType="speedDir" node="joystickLeftRot" minRot="-20 0 0" maxRot="20 0 0" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </motorized>
+
+    <animations>
+        <animation name="fuelDisplay">
+            <part node="fuel" startTime="0" endTime="1" startRot="0 0 -55" endRot="0 0 55"/>
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="hydraulicArmMainBarDummy" delayedNode="hydraulicArmMainBar" playSound="true">
+                <controls axis="AXIS_FRONTLOADER_ARM" invertAxis="false" mouseSpeedFactor="0.3" iconName="CRANE_ARM2_ROTATE_X"/>
+                <rotation rotSpeed="13" rotAcceleration="120" rotMax="45" rotMin="-1"/>
+                <dependentMovingTool node="attacherDummy" minRotLimits="-70 -10" maxRotLimits="70 115"/>
+                <attacherJoint jointIndices="1"/>
+                <dependentPart node="armMain1Dummy"/>
+            </movingTool>
+            <movingTool node="attacherDummy" delayedNode="attacher" playSound="true">
+                <controls axis="AXIS_FRONTLOADER_TOOL" invertAxis="true" mouseSpeedFactor="0.5" iconName="CRANE_ARM2_ROTATE_TOOL"/>
+                <rotation rotSpeed="50" rotAcceleration="200" rotMax="80" rotMin="-70" syncMinRotLimits="true" syncMaxRotLimits="true"/>
+                <attacherJoint jointIndices="1"/>
+            </movingTool>
+            <movingTool node="hydraulicArmMainBar">
+                <attacherJoint jointIndices="1"/>
+                <dependentPart node="armMain1"/>
+            </movingTool>
+            <movingTool node="attacher">
+                <dependentPart node="hydraulicAttacher"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="armMain1" referencePoint="armMain_ref" localReferencePoint="armMain2" referenceFrame="armMain_ref">
+                <dependentPart node="armMain2"/>
+                <dependentPart node="hydraulicArmMain"/>
+            </movingPart>
+            <movingPart node="armMain2" referencePoint="armMain_ref" referenceFrame="armMain2_ref">
+                <dependentPart node="attacherRot"/>
+            </movingPart>
+            <movingPart node="hydraulicArmMain" referencePoint="hydraulicArmMain_ref" referenceFrame="hydraulicArmMain_ref">
+                <translatingPart node="hydraulicArmMain_punch"/>
+            </movingPart>
+            <movingPart node="hydraulicAttacher" referencePoint="hydraulicAttacher_ref" referenceFrame="hydraulicAttacher_ref">
+                <translatingPart node="hydraulicAttacher_punch"/>
+            </movingPart>
+            <movingPart node="attacherRot" referenceFrame="jcb325T_main_component1">
+                <dependentPart node="hydraulicAttacher"/>
+            </movingPart>
+            <movingPart node="armMain1Dummy" referencePoint="armMain1Dummy_ref1" localReferencePoint="armMain2Dummy" referenceFrame="armMain1Dummy_ref1">
+                <dependentPart node="armMain2Dummy"/>
+            </movingPart>
+            <movingPart node="armMain2Dummy" referencePoint="armMain1Dummy_ref1" referenceFrame="armMain2Dummy_ref">
+                <dependentPart node="attacherRotDummy"/>
+            </movingPart>
+            <movingPart node="attacherRotDummy" referenceFrame="jcb325T_main_component1"/>
+        </movingParts>
+        <sounds>
+            <actionSound template="hydraulicLayerTone2"   pitchScale="1.5" volumeScale="1.2" linkNode="hydraulicArmMain"   actionNames="TRANSLATING_POS TRANSLATING_NEG" nodes="hydraulicArmMain" fadeIn="0.1" fadeOut="0.05"/>
+            <actionSound template="hydraulicLayerTone"    pitchScale="0.7" volumeScale="1.2" linkNode="hydraulicArmMain"   actionNames="TRANSLATING_POS" nodes="hydraulicArmMain" fadeIn="0.1" fadeOut="0.05"/>
+            <actionSound template="hydraulicLayerTone2"   pitchScale="2.5" volumeScale="0.4" linkNode="hydraulicAttacher" actionNames="TRANSLATING_POS TRANSLATING_NEG" nodes="hydraulicAttacher" fadeIn="0.1" fadeOut="0.05"/>
+            <actionSound template="defaultHydraulicSound" pitchScale="1.1" volumeScale="0.8" linkNode="hydraulicAttacher" actionNames="TRANSLATING_POS TRANSLATING_NEG" nodes="hydraulicAttacher" fadeIn="0.1" fadeOut="0.05"/>
+            <actionSound template="metalLowVar2"  pitchScale="1.0" volumeScale="3"   linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="armMain1Dummy"/>
+            <actionSound template="cylinderPunch" pitchScale="1.5" volumeScale="0.4" linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="armMain1Dummy"/>
+            <actionSound template="metalClose"    pitchScale="2.5" volumeScale="0.2" linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="armMain1Dummy"/>
+            <actionSound template="clackVar6"     pitchScale="1.0" volumeScale="1.0" linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_NEG_LIMIT" nodes="armMain1Dummy"/>
+
+            <actionSound template="metalLowVar2"  pitchScale="1.3" volumeScale="2.0"   linkNode="armMain1Dummy" actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="armMain1Dummy"/>
+            <actionSound template="cylinderPunch" pitchScale="1.8" volumeScale="0.2" linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="armMain1Dummy"/>
+            <actionSound template="metalClose"    pitchScale="2.8" volumeScale="0.1" linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="armMain1Dummy"/>
+            <actionSound template="clackVar6"     pitchScale="1.8" volumeScale="0.5" linkNode="armMain1Dummy"   actionNames="TOOL_MOVE_END_POS_LIMIT" nodes="armMain1Dummy"/>
+        </sounds>
+        <dashboards>
+            <dashboard displayType="ROT" valueType="movingTool" node="joystickRight" rotAxis="1" minRot="15" maxRot="-15" axis="AXIS_FRONTLOADER_ARM"  doInterpolation="true" groups="MOTOR_ACTIVE"/>
+            <dashboard displayType="ROT" valueType="movingTool" node="joystickRight" rotAxis="3" minRot="-15" maxRot="15" axis="AXIS_FRONTLOADER_TOOL" doInterpolation="true" groups="MOTOR_ACTIVE"/>
+        </dashboards>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" showOnHud="false" showInShop="false" fillTypes="diesel" capacity="103"/>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <honk>
+        <sound template="HONK_MANITOU" linkNode="jcb325T_main_component1" />
+    </honk>
+
+    <dashboard>
+        <groups>
+            <group name="MOTOR_STARTING" isMotorStarting="true"/>
+            <group name="MOTOR_ACTIVE"   isMotorStarting="true" isMotorRunning="true"/>
+        </groups>
+    </dashboard>
+
+    <foliageBending>
+        <bendingNode minX="-0.9" maxX="0.9" minZ="-1.75" maxZ="1.35" yOffset="0.3" />
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="3" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="jcb325T_main_component1" node="0>" />
+        <i3dMapping id="wheelConfig" node="0>0|0" />
+        <i3dMapping id="wheelFrontLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelFrontRight" node="0>0|0|1" />
+        <i3dMapping id="wheelBackLeft" node="0>0|0|2" />
+        <i3dMapping id="wheelBackRight" node="0>0|0|3" />
+        <i3dMapping id="crawlerDriveNodeLeft" node="0>0|1" />
+        <i3dMapping id="crawlerDriveNodeRight" node="0>0|2" />
+        <i3dMapping id="outdoorCameraTarget" node="0>4|0" />
+        <i3dMapping id="outdoorCamera" node="0>4|0|0" />
+        <i3dMapping id="indoorCamera" node="0>4|1" />
+        <i3dMapping id="cameraRaycastNode1" node="0>4|2" />
+        <i3dMapping id="cameraRaycastNode2" node="0>4|3" />
+        <i3dMapping id="shadowFocusBox" node="0>4|4" />
+        <i3dMapping id="exitPoint" node="0>5" />
+        <i3dMapping id="defaultStatic" node="0>6|0|0" />
+        <i3dMapping id="turnLeftStatic" node="0>6|0|1" />
+        <i3dMapping id="turnRightStatic1" node="0>6|0|2" />
+        <i3dMapping id="backStatic" node="0>6|0|3" />
+        <i3dMapping id="workBackStatic" node="0>6|0|4" />
+        <i3dMapping id="workFrontStatic" node="0>6|0|5" />
+        <i3dMapping id="frontLightLow" node="0>6|1|0" />
+        <i3dMapping id="highBeamLow" node="0>6|1|1" />
+        <i3dMapping id="frontLightHigh" node="0>6|1|2" />
+        <i3dMapping id="highBeamHigh" node="0>6|1|3" />
+        <i3dMapping id="workLightBackLow" node="0>6|2|0" />
+        <i3dMapping id="workLightBackHigh" node="0>6|2|1" />
+        <i3dMapping id="backLightsHigh" node="0>6|3|0" />
+        <i3dMapping id="turnLightLeftFront" node="0>6|4|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>6|4|0|0" />
+        <i3dMapping id="turnLightRightBack" node="0>6|4|1" />
+        <i3dMapping id="player_skin" node="0>7|0" />
+        <i3dMapping id="player_rightFoot" node="0>7|1" />
+        <i3dMapping id="player_leftFoot" node="0>7|2" />
+        <i3dMapping id="exhaustParticles" node="0>8" />
+        <i3dMapping id="hydraulicArmMainBar" node="0>9" />
+        <i3dMapping id="armMain_ref" node="0>9|0" />
+        <i3dMapping id="armMain1" node="0>10" />
+        <i3dMapping id="armMain2" node="0>10|0" />
+        <i3dMapping id="attacherRot" node="0>10|0|0" />
+        <i3dMapping id="attacher" node="0>10|0|0|0" />
+        <i3dMapping id="hydraulicAttacher_ref" node="0>10|0|0|0|0" />
+        <i3dMapping id="attacherJoint_visual" node="0>10|0|0|0|1" />
+        <i3dMapping id="hydraulicAttacher" node="0>10|0|1" />
+        <i3dMapping id="hydraulicAttacher_punch" node="0>10|0|1|0" />
+        <i3dMapping id="hydraulicArmMain_ref" node="0>10|0|2" />
+        <i3dMapping id="mirrorRightDecal" node="0>10|0|3|0" />
+        <i3dMapping id="turnLightRightFront" node="0>10|0|4|1|0|1" />
+        <i3dMapping id="defaultStatic1" node="0>10|0|4|2|0" />
+        <i3dMapping id="turnRightStatic" node="0>10|0|4|2|1" />
+        <i3dMapping id="decalsArmWheels" node="0>10|0|5|0" />
+        <i3dMapping id="decalsArmCrawler" node="0>10|0|5|1" />
+        <i3dMapping id="armMain2_ref" node="0>10|1" />
+        <i3dMapping id="hydraulicArmMain" node="0>11" />
+        <i3dMapping id="hydraulicArmMain_punch" node="0>11|0" />
+        <i3dMapping id="hydraulicArmMainBarDummy" node="0>12" />
+        <i3dMapping id="armMain1Dummy_ref1" node="0>12|0" />
+        <i3dMapping id="armMain1Dummy" node="0>13" />
+        <i3dMapping id="armMain2Dummy" node="0>13|0" />
+        <i3dMapping id="attacherRotDummy" node="0>13|0|0" />
+        <i3dMapping id="attacherDummy" node="0>13|0|0|0" />
+        <i3dMapping id="attacherJoint" node="0>13|0|0|0|0" />
+        <i3dMapping id="armMain2Dummy_ref" node="0>13|1" />
+        <i3dMapping id="mirrorMiddleDecal" node="0>14|0|0" />
+        <i3dMapping id="mirrorLeftDecal" node="0>14|0|1" />
+        <i3dMapping id="fuel" node="0>14|1|0" />
+        <i3dMapping id="config_jcb325T" node="0>15|0" />
+        <i3dMapping id="grids" node="0>20" />
+        <i3dMapping id="joystickLeftRot" node="0>22" />
+        <i3dMapping id="joystickLeft" node="0>22|0" />
+        <i3dMapping id="player_leftHand" node="0>22|0|0" />
+        <i3dMapping id="joystickRight" node="0>23" />
+        <i3dMapping id="player_rightHand" node="0>23|0" />
+        <i3dMapping id="config_jcb260" node="0>25" />
+    </i3dMappings>
+</vehicle>

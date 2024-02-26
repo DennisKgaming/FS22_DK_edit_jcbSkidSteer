@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="implementDynamicMountAttacher" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_skidSteerPalletFork</name>
+        <specs>
+            <combination filterCategory="skidSteerVehicles"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloaderPalletFork</function>
+        </functions>
+        <image>store_jcbPalletFork.png</image>
+        <price>700</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JCB</brand>
+        <category>skidSteerTools</category>
+        <vertexBufferMemoryUsage>83712</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>13312</indexBufferMemoryUsage>
+        <textureMemoryUsage>1835008</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>tools/palletFork.i3d</filename>
+        <size width="2" length="2"/>
+        <components>
+            <component centerOfMass="0 0.1 -0.4" solverIterationCount="10" mass="250"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer"/>
+        </inputAttacherJoints>
+    </attachable>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="forkLeft">
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="false" mouseSpeedFactor="0.2" iconName="WORKING_WIDTH_TRANSLATE_X" />
+                <dependentMovingTool node="forkRight" speedScale="-1"/>
+                <translation translationAxis="1" transSpeed="0.25" transAcceleration="50" transMin="-0.19" transMax="0.24"/>
+            </movingTool>
+
+            <movingTool node="forkRight">
+                <translation translationAxis="1" transSpeed="0.25" transAcceleration="50" transMin="-0.24" transMax="0.19"/>
+            </movingTool>
+        </movingTools>
+
+        <sounds>
+            <actionSound template="hingeMedium" pitchScale="0.6" volumeScale="2" linkNode="forkLeft" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG " nodes="forkLeft"/>
+            <actionSound template="clackVar6"   pitchScale="1"   volumeScale="1" linkNode="forkLeft" actionNames="TOOL_MOVE_END_POS_LIMIT"      nodes="forkLeft"/>
+            <actionSound template="clackVar6"   pitchScale="0.8" volumeScale="1" linkNode="forkLeft" actionNames="TOOL_MOVE_END_NEG_LIMIT"      nodes="forkLeft"/>
+        </sounds>
+    </cylindered>
+
+    <dynamicMountAttacher node="jcbPalletFork_main_component1">
+        <mountCollisionMask node="colPartFront01" collisionMask="134217728" />
+        <mountCollisionMask node="colPartBack01" collisionMask="134217728" />
+        <mountCollisionMask node="colPartFront02" collisionMask="134217728" />
+        <mountCollisionMask node="colPartBack02" collisionMask="134217728" />
+    </dynamicMountAttacher>
+
+    <foliageBending>
+        <bendingNode minX="-0.2" maxX="-0.4" minZ="-0.7" maxZ="0.75" yOffset="0"/>
+        <bendingNode minX="0.2" maxX="0.4" minZ="-0.7" maxZ="0.75" yOffset="0"/>
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="2" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="jcbPalletFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0" />
+        <i3dMapping id="forkLeft" node="0>1|0|0|0" />
+        <i3dMapping id="forkRight" node="0>1|0|1|0" />
+        <i3dMapping id="colPartBack02" node="1|0|1|0|1" />
+        <i3dMapping id="colPartFront02" node="1|0|1|0|0" />
+        <i3dMapping id="colPartBack01" node="1|0|0|0|1" />
+        <i3dMapping id="colPartFront01" node="1|0|0|0|0" />
+    </i3dMappings>
+</vehicle>

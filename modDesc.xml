@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="63">
+    <author>LandDEV</author>
+    <version>1.0.1.0</version>
+    <title>
+        <en>JCB 325 T</en>
+    </title>
+    <description>
+        <en><![CDATA[JCB 260-325T:
+- Price: 58.000/68.000$
+- Power: 74 hp
+- Speed: 13/20 km/h
+            
+Attachments:
+- Bale fork
+- Poltergabel
+- Pallet fork
+- Universal shovel
+- Stump grinder
+
+Changelog 1.0.1.0 
+- Adjusted inner camera 
+- Corrected color from the palette fork]]></en>
+<de><![CDATA[JCB 260-325T:
+- Preis: 58.000/68.000€
+- Leistung: 74 PS
+- Geschwindigkeit: 13/20 km/h
+            
+Anbaugeräte:
+- Ballengabel
+- Poltergabel
+- Palettengabel
+- Universalschaufel
+- Stubbenfräse
+
+Changelog 1.0.1.0 
+- Innenkamera angepasst
+- Farbe von der Palettengabel korrigiert
+]]></de>
+    </description>
+    <iconFilename>icon_jcb325T.dds</iconFilename>
+    <multiplayer supported="true" />
+
+    <storeItems>
+        <storeItem xmlFilename="325T.xml"/>
+        <storeItem xmlFilename="baleFork.xml"/>
+        <storeItem xmlFilename="logFork.xml"/>
+        <storeItem xmlFilename="palletFork.xml"/>
+        <storeItem xmlFilename="shovel.xml"/>
+        <storeItem xmlFilename="stumpCutter.xml"/>
+    </storeItems>
+</modDesc>

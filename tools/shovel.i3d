@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="shovel" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.1"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="8" filename="$data/shared/default_normal.png"/>
+    <File fileId="11" filename="jcbSkidsteerToolsDecals_specular.dds"/>
+    <File fileId="2" filename="jcbSkidsteerTools_normal.dds"/>
+    <File fileId="3" filename="jcbSkidsteerTools_specular.dds"/>
+    <File fileId="10" filename="jcbTM320sDecals_diffuse.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="default_mat" materialId="4" diffuseColor="0.494118 0.494118 0.494118 1">
+      <Normalmap fileId="8"/>
+    </Material>
+    <Material name="jcbSkidsteerTools_mat" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+      <CustomParameter name="colorMat0" value="0.0278 0.0254 0.0231 1"/>
+      <CustomParameter name="colorMat1" value="1 0.1 0.1 1"/>
+      <CustomParameter name="colorMat2" value="0.1 1 0.1 1"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 1 1"/>
+      <CustomParameter name="colorMat4" value="1 1 0.1 1"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 1"/>
+      <CustomParameter name="colorMat6" value="1 0.1 1 1"/>
+      <CustomParameter name="colorMat7" value="0.1 1 1 1"/>
+    </Material>
+    <Material name="jcbTM320sDecals_mat" materialId="6" alphaBlending="true" customShaderId="4" customShaderVariation="Decal">
+      <Texture fileId="10"/>
+      <Normalmap fileId="8"/>
+      <Glossmap fileId="11"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+    </Material>
+    <Material name="lambert1" materialId="7" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+    <Material name="phong1" materialId="8" diffuseColor="0.494118 0.494118 0.494118 1" specularColor="0.494118 1 0.494118">
+      <Normalmap fileId="8"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="shovel.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="jcbShovel_main_component1" dynamic="true" compound="true" collisionMask="2105344" density="1.55" clipDistance="300" nodeId="25" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <TransformGroup name="attacherJoint" translation="-2.88822e-14 0.47939 -0.329566" rotation="90 -70.9718 -90" nodeId="26"/>
+        <Shape shapeId="2" name="shovel_vis" translation="0 0.464905 0" clipDistance="300" nodeId="27" materialIds="5" castsShadows="true" receiveShadows="true">
+          <TransformGroup name="fillVolume" translation="0 -0.33678 -0.365149" rotation="66.5 0 0" nodeId="28">
+            <Shape shapeId="3" name="fillVolume" translation="0 1.06581e-16 7.10543e-17" clipDistance="300" nodeId="29" materialIds="8" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <TransformGroup name="fillVolumeDischargeNode" translation="0 0.689344 0.439448" rotation="-66.5 0 0" nodeId="30"/>
+            <TransformGroup name="fillVolumeLoadNode" translation="0 0.708304 0.410803" rotation="33.5 0 0" nodeId="31"/>
+            <TransformGroup name="fillVolumeUnloadNode" translation="0 0.903486 -0.675755" rotation="-44.3197 0 0" nodeId="32"/>
+          </TransformGroup>
+          <TransformGroup name="tipReferenceNode" translation="0 -0.439847 0.549571" nodeId="33"/>
+          <Shape shapeId="4" name="emitterShape" translation="0 -0.265492 0.371968" rotation="71.2528 0 0" clipDistance="300" nodeId="34" materialIds="4" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <TransformGroup name="effectNodeRot" translation="0 -0.434905 0.461959" nodeId="35">
+            <Shape shapeId="5" name="grainNorm" translation="3.8147e-08 0.023642 0.0779072" clipDistance="100" nodeId="36" materialIds="4" castsShadows="true" receiveShadows="true"/>
+            <Shape shapeId="6" name="smokeNorm" visibility="false" clipDistance="100" nodeId="37" materialIds="4" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+          <TransformGroup name="pickUpNode" translation="0 -0.459791 0.531841" nodeId="38"/>
+          <Shape shapeId="7" name="decals" translation="2.74658e-06 0.403027 -0.0737663" clipDistance="50" nodeId="39" materialIds="6" castsShadows="true" receiveShadows="true" decalLayer="1"/>
+        </Shape>
+        <Shape shapeId="8" name="tipTrigger" translation="0 -0.0639169 0.587427" rotation="38.8723 0 0" visibility="false" kinematic="true" compound="true" trigger="true" collisionMask="8388608" nodeId="40" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <Shape shapeId="9" name="colParts" translation="0 0.516597 -0.25748" visibility="false" compoundChild="true" collisionMask="8396802" nodeId="41" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
+          <Shape shapeId="10" name="colPart1" translation="1.19624 -0.0498525 0.201989" visibility="false" compoundChild="true" collisionMask="8396802" nodeId="42" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="11" name="colPart2" translation="-1.19624 -0.0498525 0.201989" compoundChild="true" collisionMask="8396802" nodeId="43" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="12" name="colPart3" translation="0 0.316916 0.128644" compoundChild="true" collisionMask="8396802" nodeId="44" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="13" name="colPart4_bottom" translation="1.20759 -0.0498519 0.505647" visibility="false" compoundChild="true" collisionMask="8396820" nodeId="45" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="14" name="colPart5_bottom" translation="-1.20759 -0.0498519 0.505647" compoundChild="true" collisionMask="8396820" nodeId="46" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <Shape shapeId="15" name="colPart6_bottom" translation="0 -0.499018 0.64286" compoundChild="true" collisionMask="8396820" nodeId="47" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        </Shape>
+      </Shape>
+  </Scene>
+
+  <UserAttributes>
+    <UserAttribute nodeId="40">
+      <Attribute name="triggerTipWidth" type="float" value="1.5"/>
+    </UserAttribute>
+  </UserAttributes>
+
+</i3D>

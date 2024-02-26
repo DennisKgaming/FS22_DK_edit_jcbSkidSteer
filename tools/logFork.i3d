@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="logFork" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.1"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="11" filename="$data/shared/assets/assetLibraryDecals_diffuse.png"/>
+    <File fileId="12" filename="$data/shared/assets/assetLibraryDecals_normal.png"/>
+    <File fileId="9" filename="$data/shared/default_normal.png"/>
+    <File fileId="10" filename="jcbSkidsteerToolsDecals_specular.png"/>
+    <File fileId="2" filename="jcbSkidsteerTools_normal.dds"/>
+    <File fileId="3" filename="jcbSkidsteerTools_specular.dds"/>
+    <File fileId="8" filename="jcbTM320sDecals_diffuse.png"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="assetLibraryDecals_mat" materialId="4" specularColor="1 1 1" customShaderId="4" customShaderVariation="colorMask">
+      <Texture fileId="11"/>
+      <Normalmap fileId="12"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+      <CustomParameter name="colorMat0" value="0.8 0.55 0.05 0"/>
+      <CustomParameter name="colorMat1" value="1 0.1 0.1 1"/>
+      <CustomParameter name="colorMat2" value="0.1 1 0.1 1"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 1 1"/>
+      <CustomParameter name="colorMat4" value="1 1 0.1 1"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 1"/>
+      <CustomParameter name="colorMat6" value="1 0.1 1 1"/>
+      <CustomParameter name="colorMat7" value="0.1 1 1 1"/>
+    </Material>
+    <Material name="jcbSkidsteerTools_mat" materialId="5" diffuseColor="0.494118 0.494118 0.494118 1" customShaderId="4" customShaderVariation="colorMask">
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+      <CustomParameter name="RDT" value="1 1 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+      <CustomParameter name="colorMat0" value="0.0278 0.0254 0.0231 1"/>
+      <CustomParameter name="colorMat1" value="1 0.1 0.1 1"/>
+      <CustomParameter name="colorMat2" value="0.1 1 0.1 1"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 1 1"/>
+      <CustomParameter name="colorMat4" value="1 1 0.1 1"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 1"/>
+      <CustomParameter name="colorMat6" value="1 0.1 1 1"/>
+      <CustomParameter name="colorMat7" value="0.1 1 1 1"/>
+    </Material>
+    <Material name="jcbTM320sDecals_mat" materialId="6" alphaBlending="true" customShaderId="4" customShaderVariation="Decal">
+      <Texture fileId="8"/>
+      <Normalmap fileId="9"/>
+      <Glossmap fileId="10"/>
+      <CustomParameter name="RDT" value="1 1 20 20"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+    </Material>
+    <Material name="lambert1" materialId="7" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="logFork.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="jcbLogFork_main_component1" dynamic="true" compound="true" collisionMask="2105344" density="3" clipDistance="300" nodeId="21" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <Shape shapeId="2" name="logFork_vis" translation="-1.52588e-07 0.315352 -0.123827" nodeId="22" materialIds="5" castsShadows="true" receiveShadows="true" skinBindNodeIds="22 29 30 31">
+          <TransformGroup name="attacherJoint" translation="5.9582e-17 0.126722 1.77636e-17" rotation="0 -90 0" nodeId="23"/>
+          <TransformGroup name="joint" translation="1.43051e-07 0.223521 0.107357" nodeId="24"/>
+          <TransformGroup name="hydraulicArmRef" translation="5.72205e-08 0.339771 0.0153638" rotation="50.6973 180 0" nodeId="25"/>
+          <TransformGroup name="lowerPipeRef" translation="6.19888e-08 0.112027 0.0346079" nodeId="26"/>
+          <TransformGroup name="upperPipeRef" translation="1.00136e-07 0.109998 0.0201639" nodeId="27"/>
+          <TransformGroup name="main" translation="0 0.428423 -0.0980627" rotation="-90 -49.1886 90" nodeId="28"/>
+          <TransformGroup name="arm" translation="1.43051e-07 0.223521 0.107357" nodeId="29">
+            <TransformGroup name="hydraulicArm" translation="1.43051e-08 0.229429 0.546086" rotation="10.0582 180 0" nodeId="30">
+              <TransformGroup name="hydraulicArmPunch" translation="-3.85573e-11 -3.62377e-15 0.648039" nodeId="31"/>
+            </TransformGroup>
+            <Shape shapeId="3" name="decals" translation="-5.80788e-06 0.132451 0.325656" clipDistance="50" nodeId="32" materialIds="6" castsShadows="true" receiveShadows="true" decalLayer="1"/>
+            <TransformGroup name="grab" translation="-4.29599e-08 -0.00636259 0.309888" nodeId="33"/>
+          </TransformGroup>
+        </Shape>
+        <Shape shapeId="4" name="colPart" translation="0 0.261079 -0.141989" visibility="false" compoundChild="true" collisionMask="8194" nodeId="34" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <TransformGroup name="skinnedMesh" nodeId="35">
+          <Shape shapeId="5" name="lowerPipe" translation="-3.33786e-08 0.64839 -0.00699446" rotation="69.593 180 0" clipDistance="50" nodeId="36" materialIds="5" castsShadows="true" receiveShadows="true" skinBindNodeIds="28 33"/>
+        </TransformGroup>
+      </Shape>
+      <Shape shapeId="6" name="jcbLogFork_grab_component2" translation="-9.53674e-09 0.538873 -0.0164695" rotation="-14.0695 0 0" dynamic="true" compound="true" collisionMask="2105344" density="3" clipDistance="300" nodeId="37" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true">
+        <Shape shapeId="7" name="colPart1" translation="9.53674e-09 0.0558659 0.291392" rotation="14.0695 0 0" visibility="false" compoundChild="true" collisionMask="8194" nodeId="38" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <Shape shapeId="8" name="colPart2" translation="0.54642 -0.00954966 0.54002" visibility="false" compoundChild="true" collisionMask="8194" nodeId="39" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <Shape shapeId="9" name="colPart3" translation="0.54642 -0.306161 0.610246" visibility="false" compoundChild="true" collisionMask="8194" nodeId="40" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <Shape shapeId="10" name="colPart4" translation="-0.54642 -0.00954966 0.54002" rotation="14.0695 0 0" visibility="false" compoundChild="true" collisionMask="8194" nodeId="41" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <Shape shapeId="11" name="colPart5" translation="-0.54642 -0.306161 0.610246" rotation="14.0695 0 0" visibility="false" compoundChild="true" collisionMask="8194" nodeId="42" materialIds="7" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+        <Shape shapeId="12" name="screwDecal" translation="-1.71185e-05 2.38424e-05 0.000256662" rotation="14.0695 0 0" clipDistance="55" nodeId="43" materialIds="4" castsShadows="true" receiveShadows="true" decalLayer="1"/>
+        <TransformGroup name="armRef" translation="4.52184e-17 -0.150451 0.600319" rotation="14.0695 0 0" nodeId="44"/>
+      </Shape>
+  </Scene>
+
+  <UserAttributes>
+    <UserAttribute nodeId="28">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+    <UserAttribute nodeId="33">
+      <Attribute name="liw" type="boolean" value="false"/>
+    </UserAttribute>
+  </UserAttributes>
+
+</i3D>

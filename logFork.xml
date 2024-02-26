@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<vehicle type="logGrab" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_shopItem_skidSteerLogFork</name>
+        <specs>
+            <combination filterCategory="skidSteerVehicles"/>
+        </specs>
+        <functions>
+            <function>$l10n_function_frontloaderLogFork</function>
+        </functions>
+        <image>store_jcbLogFork.png</image>
+        <price>1200</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>JCB</brand>
+        <category>skidSteerTools</category>
+        <shopTranslationOffset>0 0.05 0</shopTranslationOffset>
+        <shopRotationOffset>18 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>108288</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>16896</indexBufferMemoryUsage>
+        <textureMemoryUsage>1114112</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_frontloaderTool</typeDesc>
+        <filename>tools/logFork.i3d</filename>
+        <size width="2" length="2"/>
+        <components>
+            <component centerOfMass="0 0.1 0.2" solverIterationCount="10" mass="350" />
+            <component solverIterationCount="10" mass="134" />
+            <joint component1="1" component2="2" node="joint" rotLimit="0 0 0" transLimit="0 0 0" rotLimitSpring="300 0 0" rotLimitDamping="30 0 0" rotLimitForceLimit="15 -1 -1" />
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT" />
+    </base>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="skidSteer"/>
+        </inputAttacherJoints>
+    </attachable>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="joint" playSound="true" >
+                <controls axis="AXIS_FRONTLOADER_TOOL2" invertAxis="true" mouseSpeedFactor="0.3" iconName="TOOL_OPEN_CLOSE" />
+                <componentJoint index="1" anchorActor="0" />
+                <rotation rotSpeed="100" rotAcceleration="250" rotMax="0" rotMin="-80"/>
+                <dependentPart node="hydraulicArm"/>
+            </movingTool>
+        </movingTools>
+        <movingParts>
+            <movingPart node="arm" referencePoint="armRef" referenceFrame="armRef" isActiveDirty="true" maxUpdateDistance="200"/>
+            <movingPart node="hydraulicArm" referencePoint="hydraulicArmRef" referenceFrame="hydraulicArmRef" isActiveDirty="true" maxUpdateDistance="200">
+                <translatingPart node="hydraulicArmPunch" />
+            </movingPart>
+        </movingParts>
+        <sounds>
+            <actionSound template="defaultHydraulicSound" pitchScale="0.6" volumeScale="2"   linkNode="joint" actionNames="TOOL_MOVE_POS TOOL_MOVE_NEG"     nodes="joint"/>
+            <actionSound template="sheetImp02"            pitchScale="0.8" volumeScale="2"   linkNode="joint" actionNames="TOOL_MOVE_END_POS_LIMIT"         nodes="joint"/>
+            <actionSound template="clackVar6"             pitchScale="0.6" volumeScale="1.7" linkNode="joint" actionNames="TOOL_MOVE_END_NEG_LIMIT"         nodes="joint"/>
+            <actionSound template="sheetImp02"            pitchScale="0.8" volumeScale="2.3" linkNode="joint" actionNames="TOOL_MOVE_END_NEG_LIMIT"         nodes="joint"/>
+        </sounds>
+    </cylindered>
+
+    <foliageBending>
+        <bendingNode minX="-1.15" maxX="1.15" minZ="-0.2" maxZ="0.8" yOffset="0.2"/>
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="jcbLogFork_main_component1" node="0>" />
+        <i3dMapping id="attacherJoint" node="0>0|0" />
+        <i3dMapping id="joint" node="0>0|1" />
+        <i3dMapping id="hydraulicArmRef" node="0>0|2" />
+        <i3dMapping id="arm" node="0>0|6" />
+        <i3dMapping id="hydraulicArm" node="0>0|6|0" />
+        <i3dMapping id="hydraulicArmPunch" node="0>0|6|0|0" />
+        <i3dMapping id="armRef" node="1>6" />
+    </i3dMappings>
+</vehicle>
